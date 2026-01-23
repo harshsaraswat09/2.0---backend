@@ -27,4 +27,4 @@ lets say hamare paas ek college ki building hai college ki building mein hamare 
 jo chairmain hai vo baith ta hai room no. 110 aur dusra director 111 mein
 -------------------------------
 
-npx nodemon server.js
+npx nodemon server.js 
