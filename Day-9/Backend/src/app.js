@@ -11,7 +11,7 @@ const app = express()
 app.use(cors())
 app.use(express.json()) //middleware
 
-app.use(express.static("./public/assets"))
+app.use(express.static("./public"))
 /*
     - POST /api/notes
     - create new note and save data in mongodb
