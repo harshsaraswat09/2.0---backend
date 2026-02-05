@@ -5,10 +5,13 @@
 const express = require("express")
 const noteModel = require("./models/note.model")
 const cors = require("cors")
+const path = require("path")
 
 const app = express()
 app.use(cors())
 app.use(express.json()) //middleware
+
+app.use(express.static("./public/assets"))
 /*
     - POST /api/notes
     - create new note and save data in mongodb
@@ -74,6 +77,11 @@ app.patch('/api/notes/:id', async (req,res)=>{
     })
 })
 
+console.log(__dirname)
+
+app.use('*name', (req,res)=>{
+    res.sendFile(path.join(__dirname,"..", "/public/assets/index.html"))
+})
 
 
 module.exports = app 
