@@ -1,0 +1,37 @@
+-> Authentication
+    - register
+    {
+        1. user ka datasave karna
+        2. token user ko de dena
+    }
+    - login
+    - logout (token blacklisting)
+    - [otp based registration]
+
+
+-> post
+    - create
+    {
+        caption: String,
+        img_url: String,
+        user: userID,
+        createdAt: Date-time,
+    }
+    - can see the feed
+    - like posts (collection types)
+    - save post
+
+-> users
+    - followers
+    - following
+
+
+---
+
+user = {
+    username: String,
+    email: String,
+    password: String,
+    bio: String,
+    profile_picture: String
+}
