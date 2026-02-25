@@ -4,9 +4,14 @@ import { router } from './app.routes'
 router
 import "./features/shared/global.scss"
 
+import { AuthProvider } from './features/auth/auth.context.jsx'
+
 const App = () => {
   return (
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+
+    </AuthProvider>
       
   )
 }
