@@ -1,67 +1,28 @@
-import React, { useState } from "react";
-import "../styles/form.scss";
-import { Link, useNavigate } from "react-router";
-import axios from "axios";
-import { useAuth } from "../hooks/useAuth";
+import React from 'react'
 
-
+import '../styles/form.scss'
+import {Link} from 'react-router'
 
 const Login = () => {
-  const [username, setusername] = useState("");
-  const [password, setpassword] = useState("");
 
-  const {handleLogin, loading} = useAuth()
-  const navigate = useNavigate()
-
-  if(loading){
-    return (
-      <h1>Loading...</h1>
-    )
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    handleLogin(username, password)
-    .then(res=>{
-      console.log(res)
-      navigate("/")
-    })
-    
-  }
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
   return (
     <main>
-      <div className="form-container">
-        <h1>Login</h1>
-        <form onSubmit={handleSubmit}>
-          <input
-            onInput={(e) => {
-              setusername(e.target.value);
-            }}
-            type="text"
-            name="username"
-            placeholder="Enter username"
-          />
-          <input
-            onInput={(e) => {
-              setpassword(e.target.value);
-            }}
-            type="password"
-            name="password"
-            placeholder="Enter password"
-          />
-          <button>Login</button>
-        </form>
+        <div className="form-container">
+            <h1>Login</h1>
+            <form onSubmit={handleSubmit}>
+                <input type="text" name='username' placeholder='Enter username'/>
 
-        <p>
-          Don't have an account?{" "}
-          <Link className="toggleAuthForm" to="/register">
-            Register
-          </Link>
-        </p>
-      </div>
+                <input type="password" name='password' placeholder='Enter password'/>
+
+                <button className='button primary-button'>Login</button>
+            </form>
+            <p>Dont't have an account ? <Link to={"/register"}>Create One</Link> </p>
+        </div>
     </main>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

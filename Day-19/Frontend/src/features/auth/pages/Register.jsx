@@ -1,58 +1,26 @@
-import React, { useState } from "react";
-import { Link } from "react-router";
-import axios from "axios";
+import React from 'react'
+import { Link } from 'react-router'
 
 const Register = () => {
-  const [username, setusername] = useState("");
-  const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
-
-  async function handleSubmit(e) {
-    e.preventDefault()
-
-    
-  }
+  const handleSubmit = (e) => {
+        e.preventDefault()
+    }
   return (
     <main>
-      <div className="form-container">
-        <h1>Register</h1>
-        <form onSubmit={handleSubmit}>
-          <input
-            onInput={(e) => {
-              setusername(e.target.value);
-            }}
-            type="text"
-            name="username"
-            placeholder="Enter username"
-          />
-          <input
-            onInput={(e) => {
-              setemail(e.target.value);
-            }}
-            type="text"
-            name="email"
-            placeholder="Enter email "
-          />
-          <input
-            onInput={(e) => {
-              setpassword(e.target.value);
-            }}
-            type="password"
-            name="password"
-            placeholder="Enter password"
-          />
-          <button>Register</button>
-        </form>
+        <div className="form-container">
+            <h1>Register</h1>
+            <form onSubmit={handleSubmit}>
+                <input type="text" name='username' placeholder='Enter username'/>
 
-        <p>
-          Already have an account?{" "}
-          <Link className="toggleAuthForm" to="/login">
-            Login
-          </Link>
-        </p>
-      </div>
+                <input type="email" name='email' placeholder='Enter email address'/>
+                <input type="password" name='password' placeholder='Enter password'/>
+
+                <button className='button primary-button'>Register</button>
+            </form>
+            <p>Already have an account ? <Link to={"/login"}>Login to Account</Link> </p>
+        </div>
     </main>
-  );
-};
+  )
+}
 
-export default Register;
+export default Register
